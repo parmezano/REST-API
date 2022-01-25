@@ -16,7 +16,7 @@ app.get('/api/contacts', (req, res)=>{
 
 ///POST
 app.post('/api/contacts', (req, res) => {
-    const contact = {...req.body, id: v4(), marked: false}; ///// почему при задании айди при помощи Date.now() не работает обработка пут и делит на стороне сервера
+    const contact = {...req.body, id: Date.now(), marked: false}; ///// почему при задании айди при помощи Date.now() не работает обработка пут и делит на стороне сервера
     CONTACTS.push(contact)
     res.status(201).json(contact)
 })
